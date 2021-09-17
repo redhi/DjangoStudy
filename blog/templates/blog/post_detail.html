@@ -23,6 +23,7 @@
       media="screen"
       rel="stylesheet"
     />
+    <script src="https://kit.fontawesome.com/bf9635544f.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <!-- Responsive navbar-->
@@ -82,6 +83,20 @@
               
               <hr />
               <p>{{post.content}}</p>
+              {%if post.file_upload%}
+              <a href="{{post.file_upload.url}}" class="btn btn-outline-dark" role="button" download>Download:
+                {%if post.get_file_ext == 'csv' %}
+                <i class="fas fa-file-csv"></i>
+                {%elif post.get_file_ext == 'xlsx' or post.get_file_ext == 'xls' %}
+                <i class="fas fa-file-excel"></i>
+                {%elif post.get_file_ext == 'docx' or post.get_file_ext == 'doc'%}
+                <i class="fas fa-file-word"></i>
+                {%else%}
+                <i class="fas fa-file"></i>
+                {%endif%}
+                {{ post.get_file_name }}
+              </a>
+              {%endif%}
               <hr />
               <!-- Post meta content-->
               <!-- <div class="text-muted fst-italic mb-2">
