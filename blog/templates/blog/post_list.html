@@ -88,7 +88,7 @@
                         <div class="small text-muted">January 1, 2021</div>
                         <h2 class="card-title h4">{{p.title}}</h2>
                         <p class="card-text">{{p.content}}</p>
-                        <a class="btn btn-primary" href="#!">Read more →</a>
+                        <a class="btn btn-primary" href="{{p.get_absolute_url}}">Read more →</a>
                     </div>
                     <div class="card-footer text-muted">
                       Post on {{p.created_at}} by
